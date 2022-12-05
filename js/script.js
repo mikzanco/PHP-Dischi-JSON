@@ -5,9 +5,19 @@ createApp({
     data(){
         return{
             apiUrl: 'server.php',
+            disc: [],
+        }
+    },
+    methods:{
+        getDisc(){
+            axios.get(this.apiUrl)
+            .then(result => {
+                console.log(result.data);
+                this.disc = result.data;
+            })
         }
     },
     mounted(){
-        console.log('App MONTATA');
+        this.getDisc();
     }
 }).mount('#app');
