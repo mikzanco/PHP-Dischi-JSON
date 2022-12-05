@@ -28,18 +28,24 @@
         Logo
     </header>
     <main>
-        <div class="container">
-            <div id="app">
+        <div id="app">
+            <div class="container container-mz">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
+                    
+                    <!-- faccio il ciclo con v-for nella pagina index -->
                     <div 
                     v-for="(cd, index) in disc" :key="index"
                     class="col">
+
                         <div class="card ">
+                            
                             <img :src="cd.poster" class="card-img-top" alt="...">
-                            <div class="card-body d-flex flex-column justify-content-center">
+                            <div class="card-body d-flex flex-column align-items-center">
+
                                 <h5 class="card-title">{{cd.title}}</h5>
                                 <p class="card-text">{{cd.author}}</p>
                                 <p class="card-text">{{cd.year}}</p>
+
                             </div>
                         </div>
                     </div>

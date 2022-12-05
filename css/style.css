@@ -14,7 +14,14 @@ header{
 }
 
 main{
-    height: calc(100% - 10%);
     width: 100%;
-    background-color: rgb(74, 74, 74);
+    background-color: rgb(25, 15, 89);
 }
+
+.card{
+    background-color: rgb(3, 3, 32);
+    color: white;
+    padding: 15px;
+    border-radius: 1rem;
+}
+
