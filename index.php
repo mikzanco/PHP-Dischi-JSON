@@ -25,32 +25,49 @@
 <body>
     
     <header>
-        Logo
+        <div class="container">
+            <img src="http://pluspng.com/img-png/spotify-logo-png-open-2000.png" alt="">
+        </div>
     </header>
     <main>
         <div id="app">
             <div class="container container-mz">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
-                    
+
                     <!-- faccio il ciclo con v-for nella pagina index -->
                     <div 
                     v-for="(cd, index) in disc" :key="index"
-                    class="col">
+                    class="col"
+                    
+                    @click="getDiscDetail(index)">
 
                         <div class="card ">
                             
-                            <img :src="cd.poster" class="card-img-top" alt="...">
+                            <img :src="cd.poster" class="card-img-top" :alt="cd.title">
                             <div class="card-body d-flex flex-column align-items-center">
 
                                 <h5 class="card-title">{{cd.title}}</h5>
                                 <p class="card-text">{{cd.author}}</p>
-                                <p class="card-text">{{cd.year}}</p>
+                                <h5 class="card-text">{{cd.year}}</h5>
 
                             </div>
                         </div>
                     </div>
+
+                    <div v-if="showDiscDetail"  id="details-container">
+                        <div class="disc single-disc">
+                            <img :src="singleDisc.poster" :alt="singleDisc.title" />
+                            <span>{{ singleDisc.author }}</span>
+                            <span>{{ singleDisc.genre }}</span>
+                            <span><strong>{{ singleDisc.year }}</strong></span>
+                            
+                            <div class="close-button-container">
+                                <button @click="showDiscDetail = false" class="button close-button">X</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            
+
             </div>
         </div>
     </main>
